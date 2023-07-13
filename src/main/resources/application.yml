@@ -1,0 +1,35 @@
+server:
+  #port: 8071
+  port: 0
+  
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8099/eureka/
+spring:
+  application:
+    name: payment-enzona
+  security:
+    oauth2:
+      client:
+        registration:
+          login-client:
+            provider: local-authz
+            client-id : client-1234
+            client-secret : secret
+            client-authentication-method : basic
+            authorization-grant-type: authorization_code
+            scope : profile
+            client-name : pachu
+            redirectUri: "{baseUrl}/login/oauth2/code/{registrationId}"
+           # redirect-uri-template : "{baseUrl}/login/oauth2/code/{registrationId}"
+#            redirect-uri-template : "{baseUrl}/resources/templates"
+        provider:
+          local-authz :
+            #authorization-uri: http://localhost:8090/oauth/authorize
+            authorization-uri:  https://api.enzona.net/payment/v1.0.0
+            token-uri: http://localhost:8090/oauth/token
+            user-info-uri : http://localhost:8090/resources/userinfo
+            user-name-attribute : name
+            
+       
