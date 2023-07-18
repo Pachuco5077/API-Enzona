@@ -9,24 +9,23 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-import cu.entumovil.payment.enzona.PrincipalDetails;
+import cu.entumovil.payment.enzona.model.PrincipalDetails;
 
 
 @RestController
 public class ProfileRestController {
 	private final RestTemplate restTemplate;
-	private final OAuth2AuthorizedClientService clientService;
+	private final OAuth2AuthorizedClientService oAuth2AuthorizedClientService;
 
 	public ProfileRestController(RestTemplate restTemplate, OAuth2AuthorizedClientService clientService) {
 		this.restTemplate = restTemplate;
-		this.clientService = clientService;
+		this.oAuth2AuthorizedClientService = clientService;
 	}
 
 	@GetMapping("/")
 	public PrincipalDetails profile(OAuth2AuthenticationToken token) {
-		OAuth2AuthorizedClient client = this.clientService.loadAuthorizedClient(token.getAuthorizedClientRegistrationId(),token.getName());
-		System.out.println("Este es el token: " + token.getName());
-
+		OAuth2AuthorizedClient client = this.oAuth2AuthorizedClientService.loadAuthorizedClient(token.getAuthorizedClientRegistrationId(),token.getName());
+		
 		String uri = client.getClientRegistration().getProviderDetails().getUserInfoEndpoint().getUri();
 
 		ResponseEntity<PrincipalDetails> responseEntity = this.restTemplate.exchange(uri, HttpMethod.GET, null, PrincipalDetails.class);

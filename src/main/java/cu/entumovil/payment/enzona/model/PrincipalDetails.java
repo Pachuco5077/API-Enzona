@@ -1,4 +1,4 @@
-package cu.entumovil.payment.enzona;
+package cu.entumovil.payment.enzona.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
