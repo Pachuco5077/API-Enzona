@@ -1,11 +1,11 @@
 server:
-  #port: 8071
-  port: 0
+  port: 8071
+  #port: 0
   
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8099/eureka/
+#eureka:
+ # client:
+  #  serviceUrl:
+   #   defaultZone: http://localhost:8099/eureka/
 spring:
   application:
     name: payment-enzona

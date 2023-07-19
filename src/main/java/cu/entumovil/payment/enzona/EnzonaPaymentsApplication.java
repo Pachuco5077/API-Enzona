@@ -15,30 +15,7 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootApplication
 public class EnzonaPaymentsApplication {
 
-	@Bean
-	RestTemplate restTemplate(OAuth2AuthorizedClientService clientService) {
-		
-		///// PRUEBAS ////
-		return new RestTemplateBuilder().interceptors((ClientHttpRequestInterceptor) (httpRequest, bytes, execution) -> {
-			
-			
-			//Token de autorizacion
-			OAuth2AuthenticationToken token = OAuth2AuthenticationToken.class.cast(SecurityContextHolder.getContext().getAuthentication());			
-
-			System.out.println("- - - Este es el token: " + token.getCredentials());
-			
-			//Cliente autorizado con el token
-			OAuth2AuthorizedClient client = clientService.loadAuthorizedClient(token.getAuthorizedClientRegistrationId(),token.getName());
-			httpRequest.getHeaders().add(HttpHeaders.AUTHORIZATION, "Bearer " + client.getAccessToken().getTokenValue());
-
-			return execution.execute(httpRequest, bytes);
-		})
-				.build();
-	}
-
 	public static void main(String[] args) {
-		
-		
 		SpringApplication.run(EnzonaPaymentsApplication.class, args);
 	}
 }
