@@ -3,8 +3,6 @@
 Plugin Name: Enzona Api Integration
 Version: 0.0.1
 Description: Integrates enzona api to make arbitrary payments.
-Author: Luisito el pulpito
-Author URI: https://dofleini.com
 
 */
 

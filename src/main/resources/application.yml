@@ -31,5 +31,11 @@ spring:
             token-uri: http://localhost:8090/oauth/token
             user-info-uri : http://localhost:8090/resources/userinfo
             user-name-attribute : name
+          
+enzona:
+  customer-key: customerkey
+  customer-client: customerclient
+  url-sandbox: https://apisandbox.enzona.net/token
+  url-production: https://api.enzona.net/token       
             
        
