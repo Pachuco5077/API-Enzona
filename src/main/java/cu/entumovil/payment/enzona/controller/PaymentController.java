@@ -28,5 +28,9 @@ public class PaymentController {
 	@PostMapping("/cancelPayment")
 	public List getPaymentslink() {
 		return this.paymentLinkService.getPaymentslink();
+	}
+	@PostMapping("/completarPayment")
+	public List getPaymentslink() {
+		return this.paymentLinkService.getPaymentslink();
 	}*/
 }

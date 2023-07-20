@@ -24,7 +24,7 @@ import cu.entumovil.payment.enzona.model.PrincipalDetails;
 @RequestMapping("/enzona")
 @CrossOrigin
 public class ProfileRestController {
-	private final RestTemplate restTemplate = new RestTemplate();
+	/*private final RestTemplate restTemplate = new RestTemplate();
 	private final OAuth2AuthorizedClientService oAuth2AuthorizedClientService = null;
 
 	@GetMapping("/")

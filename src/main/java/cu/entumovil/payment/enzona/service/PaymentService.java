@@ -4,8 +4,5 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class PaymentService {
-	private String testGit;
-
-	public void funcionTest() {
-	}
+	
 }

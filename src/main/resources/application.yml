@@ -28,7 +28,8 @@ spring:
           local-authz :
             #authorization-uri: http://localhost:8090/oauth/authorize
             authorization-uri:  https://api.enzona.net/payment/v1.0.0
-            token-uri: http://localhost:8090/oauth/token
+            #token-uri: http://localhost:8090/oauth/token
+            token-uri: http://api.enzona.net/token
             user-info-uri : http://localhost:8090/resources/userinfo
             user-name-attribute : name
           
